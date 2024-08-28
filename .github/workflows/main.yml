@@ -22,7 +22,7 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script: |
             cd /home/u128493830/domains/waykru.id
-            git clone https://github.com/ahmakbardev/seniman_ARTIKNESIA.git
+            git clone https://github.com/ahmakbardev/waykru.git
             cd /home/u128493830/domains/waykru.id/waykru
             chmod +x ~/bin/composer
             echo "export PATH=$HOME/bin:$PATH" >> ~/.bash_profile
