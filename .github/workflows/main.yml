@@ -37,3 +37,4 @@ jobs:
             php artisan route:clear
             php artisan config:cache
             php artisan optimize
+            ln -s /home/u128493830/domains/waykru.id/waykru/public /home/u128493830/domains/waykru.id/public_html
