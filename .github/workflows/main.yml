@@ -1,0 +1,39 @@
+name: Deploy Laravel to Hpanel
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy to Hpanel
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_KEY }}
+          port: ${{ secrets.SERVER_PORT }}
+          script: |
+            cd /home/u128493830/domains/waykru.id
+            git clone https://github.com/ahmakbardev/seniman_ARTIKNESIA.git
+            cd /home/u128493830/domains/waykru.id/waykru
+            chmod +x ~/bin/composer
+            echo "export PATH=$HOME/bin:$PATH" >> ~/.bash_profile
+            source ~/.bash_profile
+            which composer
+            composer --version
+            cd /home/u128493830/domains/waykru.id/waykru
+            git pull origin develop
+            composer install
+            composer update
+            php artisan key:generate
+            php artisan route:clear
+            php artisan config:cache
+            php artisan optimize
