@@ -33,8 +33,7 @@ jobs:
             git pull origin develop
             composer install
             composer update
-            php artisan key:generate
             php artisan route:clear
             php artisan config:cache
             php artisan optimize
-            ln -s /home/u128493830/domains/waykru.id/waykru/public /home/u128493830/domains/waykru.id/public_html
+            ln -s /home/u128493830/domains/waykru.id/waykru/public/* /home/u128493830/domains/waykru.id/public_html
