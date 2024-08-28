@@ -1,0 +1,128 @@
+.page-1-article {
+  background-color: var(--second-primary-clr);
+  height: 1fr;
+  padding: 100px 0px;
+}
+
+.page-1-article-title {
+  text-align: center;
+  font-size: 24px;
+  margin: 0;
+}
+
+.page-1-article-title h2 {
+  font-family: poppins;
+  color: var(--first-primary-clr);
+}
+
+.container2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  margin-inline: 1.5rem;
+  margin-right: 120px;
+  margin-left: 120px;
+  column-gap: 40px;
+}
+
+.news-container {
+  background-color: var(--first-primary-clr);
+  padding-top: 12px;
+  padding-left: 32px;
+  padding-right: 32px;
+  height: 500px;
+  border-radius: 16px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 64px;
+}
+
+
+
+.news-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.news-header-container a {
+  text-decoration: none;
+  color: var(--first-primary-clr);
+  background-color: var(--second-primary-clr);
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-family: poppins;
+  font-size: 12px;
+  margin-right: 14px;
+}
+
+.news-header-container p {
+  font-family: poppins;
+  color: var(--mostly-text-clr);
+  font-size: 14px;
+  margin-left: 14px;
+}
+
+.news-image {
+  padding: 8px 24px;
+}
+
+.news-image img {
+  border-radius: 8px;
+  margin-bottom: 8px;
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.news-headline h2 {
+  margin: 0;
+  font-family: poppins;
+  font-size: 14px;
+  margin-left: 24px;
+  margin-right: 24px;
+  color: var(--title-clr);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.news-headline h3 {
+  margin: 0;
+  font-family: poppins;
+  font-size: 10px;
+  margin-left: 24px;
+  margin-right: 24px;
+  color: var(--mostly-text-clr);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.news-headline a {
+  margin: 0;
+  font-family: poppins;
+  font-size: 10px;
+  margin-left: 24px;
+  margin-right: 24px;
+  color: var(--mostly-text-clr);
+  font-weight: 500;
+}
+
+.more-news-btn {
+  text-align: center;
+}
+
+.more-news-btn a {
+  text-decoration: none;
+  background-color: var(--first-primary-clr);
+  color: var(--second-primary-clr);
+  font-family: poppins;
+  padding: 20px 56px;
+  border-radius: 48px;
+  cursor: pointer;
+  transition: color, background-color 0.20s;
+}
+
+.more-news-btn a:hover {
+  color: var(--first-primary-clr);
+  background-color: var(--mostly-text-clr);
+}

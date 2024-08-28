@@ -1,0 +1,79 @@
+.header { 
+  display: flex ; 
+  align-items: center; 
+  justify-content: space-between; 
+  position: fixed; 
+  width: 100%; 
+  top: 0px;
+   left: 0px; 
+   right: 0px;
+  z-index: 100; 
+  background-color: var(--first-primary-clr);
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.01) , 0px 5px 10px rgba(0, 0, 0, 0.015);
+  padding-top: 4px;
+  padding-bottom: 4px;
+  }
+
+.title {
+  font-family: bowlby one sc;
+  color: var(--second-primary-clr);
+  font-size: 24px;
+  width: 60%;
+  text-decoration: none;
+  align-items: center;
+  margin-left: 160px;
+}
+
+.all-menu {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-right: 160px;
+}
+
+.menu-list {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+.menu {
+  font-family: poppins;
+  color: var(--mostly-text-clr);
+  font-weight: 600;
+  font-size: 16px;
+  transition: font-size 0.15s;
+  text-decoration: none;
+}
+
+.menu:hover {
+  font-size: 20px;
+}
+
+
+.sign-up-button {
+  background-color: var(--first-primary-clr);
+  border: none;
+  font-family: poppins;
+  font-weight: 600;
+  padding: 8px 16px;
+  background-color: var(--second-primary-clr);
+  color: var(--default-white-clr);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: padding 0.15s;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.sign-up-button:hover {
+  padding: 10px 20px;
+}
+
+.sign-up-button:active {
+  background-color: var(--default-white-clr);
+}

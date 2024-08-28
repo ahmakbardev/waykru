@@ -1,0 +1,92 @@
+.page-1-all {
+  display: flex;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  padding-left: 120px;
+  padding-right: 120px;
+  align-items: center;
+  height: 1fr;
+}
+
+.page-1-description {
+  align-items: center;
+}
+
+.page-1-description h1 {
+  color: var(--second-primary-clr);
+  font-family: poppins;
+  font-size: 56px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 70px;
+}
+
+.page-1-description p {
+  font-family: poppins;
+  color: var(--mostly-text-clr);
+  font-weight: 500;
+  margin-bottom: 40px;
+  margin-top: 0px;
+}
+
+.page-1-button-flex {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.page-1-start-chat {
+  background-color: var(--second-primary-clr);
+  color: var(--first-primary-clr);
+  font-family: poppins;
+  padding: 10px 20px ;
+  border-radius: 4px;
+  border: none;
+  text-decoration: none;
+  transition: color, background-color
+  , font-size 0.3s;
+}
+
+.page-1-start-chat:hover {
+  color: var(--second-primary-clr);
+  background-color: var(--default-white-clr);
+  font-size: 18px;
+}
+
+.page-1-more-features {
+  color: var(--second-primary-clr);
+  font-family: poppins;
+  transition: color, font-size 0.3s;
+}
+
+.page-1-more-features:hover {
+  color: var(--mostly-text-clr);
+  font-size: 18px;
+}
+
+
+.chatbot-img {
+  width:800px;
+}
+
+/*END OF PAGE 1*/
+
+.verification {
+  margin: none;
+  display: flex;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--second-primary-clr);
+  gap: 16px;
+}
+
+.verification p {
+  color: var(--mostly-text-clr);
+  font-family: roboto;
+  font-weight: 600;
+}
+
+.museum-panji-logo {
+  width: 100px;
+}
