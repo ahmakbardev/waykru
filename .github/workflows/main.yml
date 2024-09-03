@@ -30,6 +30,8 @@ jobs:
             which composer
             composer --version
             cd /home/u128493830/domains/waykru.id/waykru
+            git add .
+            git stash
             git pull origin develop
             composer install
             composer update
