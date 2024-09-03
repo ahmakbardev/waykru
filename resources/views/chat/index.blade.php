@@ -3,102 +3,85 @@
 @section('content')
     <div class="max-w-4xl mx-auto my-24 p-4 py-10 bg-container rounded-lg shadow-lg">
         <div class="flex justify-between items-center border-b pb-2 mb-4 border-text">
-            <h2 class="text-lg font-semibold text-title">Private Chat with Admin</h2>
+            <h2 class="text-lg font-semibold text-title">Information Topics</h2>
         </div>
 
-        <div id="messages" class="bg-body-bg p-4 rounded-lg overflow-y-auto" style="height: 400px;">
-            <!-- Pesan akan dimuat di sini melalui AJAX -->
+        <div id="topic-list" class="space-y-2 overflow-y-auto" style="height: 400px;">
+            <!-- Topics will be loaded via AJAX -->
         </div>
 
-        <!-- Input message box -->
-        <div class="flex items-center border-t border-text pt-4 mt-4">
-            <input id="message-input" type="text" placeholder="Write your message..."
-                class="flex-grow px-4 py-2 border border-text rounded-full focus:outline-none focus:ring-2 focus:ring-second-primary" />
-            <button id="send-button"
-                class="ml-2 px-4 py-2 bg-second-primary text-default-white rounded-full hover:bg-second-primary-dark">
-                Send
-            </button>
+        <!-- Back Button (shown after clicking a topic) -->
+        <button id="back-button" class="hidden text-indigo-600 text-sm hover:text-indigo-800 mb-4 flex items-center group">
+            <i data-feather="arrow-left"
+                class="mr-2 group-hover:mr-3 group-hover:w-8 p-1 aspect-square h-full w-7 group-hover:border group-hover:border-indigo-600 rounded-full transition-all ease-in-out"></i>
+            <p>Kembali</p>
+        </button>
+
+        <div id="information-detail" class="mt-4 text-gray-700 hidden">
+            <div id="information-content" class="w-full px-7">
+                <!-- Detailed information will be displayed here -->
+            </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ mix('js/app.js') }}"></script> <!-- Pastikan app.js sudah build -->
 
     <script>
-        Pusher.logToConsole = true;
+        document.addEventListener('DOMContentLoaded', function() {
+            const topicList = document.getElementById('topic-list');
+            const informationDetail = document.getElementById('information-detail');
+            const informationContent = document.getElementById('information-content');
+            const backButton = document.getElementById('back-button');
 
-        var userId = {{ Auth::id() }};
-        var lastMessageId = null;
+            // Fetch topics and display them
+            function fetchTopics() {
+                axios.get('/api/topics')
+                    .then(function(response) {
+                        response.data.forEach(function(topic) {
+                            const listItem = document.createElement('li');
+                            listItem.classList.add('cursor-pointer', 'bg-gray-100', 'p-3', 'rounded-lg',
+                                'shadow-md', 'hover:bg-indigo-100', 'transition', 'duration-300',
+                                'ease-in-out');
+                            listItem.setAttribute('data-id', topic.id);
+                            listItem.textContent = topic.name;
+                            topicList.appendChild(listItem);
 
-        Echo.channel('chat.' + userId)
-            .listen('AdminReplySent', (e) => {
-                console.log(e); // Periksa struktur data
-                validateAndAddMessage(e); // Langsung kirim objek e ke fungsi
-            });
-
-        function validateAndAddMessage(message) {
-            if (message.id !== lastMessageId) {
-                addMessage(message);
-                lastMessageId = message.id;
-            }
-        }
-
-        function addMessage(message) {
-            var sender = message.sender_id === userId ? 'You' : 'WAYKRU';
-            var messageElement = `<div class="mb-4 ${message.sender_id === userId ? 'text-right' : 'text-left'}">
-                    <div class="inline-block">
-                        <span class="text-sm text-text">${sender}</span>
-                        <p class="mt-1 text-mostly-text bg-white p-2 rounded-lg">
-                            ${message.message}
-                        </p>
-                    </div>
-                </div>`;
-            $('#messages').append(messageElement);
-            scrollChatToBottom();
-        }
-
-
-        function scrollChatToBottom() {
-            var messagesDiv = document.getElementById('messages');
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-        }
-
-        function fetchMessages() {
-            axios.get('/fetch-messages/' + userId)
-                .then(function(response) {
-                    $('#messages').empty();
-                    response.data.messages.forEach(function(message) {
-                        addMessage(message);
+                            listItem.addEventListener('click', function() {
+                                displayInformation(topic);
+                            });
+                        });
+                    })
+                    .catch(function(error) {
+                        console.error('Error fetching topics:', error);
                     });
-                })
-                .catch(function(error) {
-                    console.error('Error fetching messages:', error);
-                });
-        }
-
-        $('#send-button').on('click', function() {
-            var message = $('#message-input').val();
-
-            if (message.trim() === '') {
-                alert('Message cannot be empty');
-                return;
             }
 
-            axios.post('{{ route('send-message') }}', {
-                message: message,
-                _token: '{{ csrf_token() }}'
-            }).then(function(response) {
-                $('#message-input').val('');
-                fetchMessages();
-            }).catch(function(error) {
-                console.error('Error sending message:', error);
-            });
-        });
+            // Display information for a selected topic
+            function displayInformation(topic) {
+                if (topic.information) {
+                    informationContent.innerHTML = `
+                        <h4 class="text-lg font-semibold mb-2">${topic.information.title}</h4>
+                        <p>${topic.information.content}</p>
+                    `;
+                } else {
+                    informationContent.innerHTML = `<p>Informasi tidak tersedia untuk topik ini.</p>`;
+                }
+                informationDetail.classList.remove('hidden');
+                topicList.classList.add('hidden');
+                backButton.classList.remove('hidden');
+            }
 
-        fetchMessages(); // Fetch existing messages on page load
+            backButton.addEventListener('click', function() {
+                informationDetail.classList.add('hidden');
+                topicList.classList.remove('hidden');
+                backButton.classList.add('hidden');
+            });
+
+            fetchTopics();
+        });
     </script>
 @endsection
