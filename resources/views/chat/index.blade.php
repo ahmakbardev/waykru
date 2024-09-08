@@ -153,7 +153,7 @@
                 userMessage.innerHTML = `
                     <img src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full" alt="Avatar">
                     <div>
-                        <p class="font-bold">Akbar</p>
+                        <p class="font-bold">{{ Auth::user()->name }}</p>
                         <p class="text-gray-600">${topic.name}</p>
                     </div>
                 `;
