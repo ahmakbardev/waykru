@@ -605,6 +605,9 @@ video {
 .z-50 {
   z-index: 50;
 }
+.z-\[11\] {
+  z-index: 11;
+}
 .m-0 {
   margin: 0px;
 }

@@ -13,9 +13,9 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <!-- Append version number to CSS file name -->
-    <link rel="stylesheet" href="{{ asset('css/app.css?v=1.08') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css?v=1.09') }}">
     <!-- Add cache-control headers for CSS and JavaScript files -->
-    <link rel="preload" href="{{ asset('css/app.css?v=1.08') }}" as="style" crossorigin="anonymous" />
+    <link rel="preload" href="{{ asset('css/app.css?v=1.09') }}" as="style" crossorigin="anonymous" />
     <link href="{{ asset('styles-waykru/footer.css') }}" rel="stylesheet">
     <link href="{{ asset('styles-waykru/general.css') }}" rel="stylesheet">
     <link href="{{ asset('styles-waykru/header.css') }}" rel="stylesheet">

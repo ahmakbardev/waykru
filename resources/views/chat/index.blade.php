@@ -27,7 +27,7 @@
                     disabled>
                     <i data-feather="send" class="h-6 w-6"></i>
                     <!-- Tooltip -->
-                    <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 bg-gray-700 text-white text-sm rounded-lg px-2 py-1 opacity-0 transition-opacity duration-300"
+                    <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 bg-gray-700 z-[11] text-white text-sm rounded-lg px-2 py-1 opacity-0 transition-opacity duration-300"
                         id="tooltip">
                         Topik tidak ditemukan
                     </div>
