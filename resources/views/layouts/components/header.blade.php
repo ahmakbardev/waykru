@@ -1,6 +1,6 @@
 <header>
     <div class="header">
-        <a href="/" class="title">
+        <a href="/" class="title bowlby-one-sc-regular">
             WAYKRU
         </a>
         <div class="all-menu">

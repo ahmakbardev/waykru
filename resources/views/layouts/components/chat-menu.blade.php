@@ -1,11 +1,11 @@
 <div id="chat-button"
-    class="fixed bottom-5 right-5 z-50 cursor-pointer bg-indigo-600 text-white p-3 rounded-full shadow-lg hover:bg-indigo-500">
+    class="fixed bottom-5 right-5 z-50 cursor-pointer bg-[#FB8226] text-white p-3 rounded-full shadow-lg hover:bg-[#FB8226]">
     <i data-feather="message-circle" class="w-6 h-6"></i>
 </div>
 
 <div id="chat-box"
     class="fixed bottom-20 right-5 z-50 bg-white border border-gray-300 shadow-lg rounded-lg overflow-hidden transform scale-0 opacity-0 transition-all duration-300 ease-out origin-bottom-right w-full max-w-[80%] md:max-w-screen-sm h-full max-h-[65%] flex flex-col">
-    <div class="bg-indigo-600 text-white p-4 flex items-center justify-between">
+    <div class="bg-[#FB8226] text-white p-4 flex items-center justify-between">
         <h3 class="text-lg">Chat</h3>
         <button id="close-chat-box" class="text-white">
             <i data-feather="x"></i>
@@ -20,7 +20,7 @@
                 <input type="text" placeholder="Type a message..." id="realtime-message-input"
                     class="flex-1 border border-gray-300 rounded-md p-2 focus:outline-none">
                 <button id="send-message-button"
-                    class="ml-2 bg-indigo-600 text-white px-3 py-1 rounded-md hover:bg-indigo-500 transition-all duration-300">
+                    class="ml-2 bg-[#FB8226] text-white px-3 py-1 rounded-md hover:bg-[#FB8226] transition-all duration-300">
                     Send
                 </button>
             </div>
