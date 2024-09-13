@@ -5,7 +5,7 @@
         </a>
         <div class="all-menu">
             <ul class="menu-list">
-                <a class="menu" href="html/features.html">
+                <a class="menu" href="{{ route('features') }}">
                     Features
                 </a>
                 <a class="menu" href="{{ route('article') }}">

@@ -42,6 +42,10 @@ Route::get('/', function () {
     return view('index');
 })->name('landing');
 
+Route::get('/features', function () {
+    return view('features.index');
+})->name('features');
+
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
 
 Route::get('/chat-menu', [AdminController::class, 'chatMenu'])->name('chat-menu');
